@@ -260,7 +260,9 @@ Reason:
 
 ## Architecture Preview Boundary
 
-The architecture preview should separate responsibilities without pretending to be a framework.
+The architecture preview should preserve the same core StudyPilot behavior as the console version while separating responsibilities more clearly.
+
+It is a structural re-expression of the same app, not a second product and not a feature-expansion phase.
 
 Recommended file roles:
 
@@ -284,6 +286,8 @@ Possible interpretations:
   user flow and menu control
 
 This should support recognition of application structure without drifting into heavy framework conventions.
+
+A short explanation artifact should accompany this version so students or instructors can see where data, logic, storage, display, and flow live.
 
 ---
 

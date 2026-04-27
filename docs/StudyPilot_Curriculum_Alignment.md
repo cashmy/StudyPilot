@@ -132,8 +132,7 @@ Focus:
 
 StudyPilot snapshot:
 
-* optionally reads external or simulated external data
-* separates application concerns into multiple files
+* preserves the same core behavior while separating application concerns into multiple files
 * previews model/view/form-style organization without requiring Django
 * may include a guided Django preview as instructor-only inspection
 

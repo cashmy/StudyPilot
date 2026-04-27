@@ -52,11 +52,13 @@ It should include useful study-planning behaviors such as:
 * showing summaries or recommendations
 * saving and loading data if appropriate
 
-This version is the closest match to the introductory Python course.
+This version is the canonical behavioral version for StudyPilot.
+
+It is the closest match to the introductory Python course.
 
 ### 2. Architecture Preview
 
-The architecture preview should express the same project idea with separated responsibilities, such as:
+The architecture preview should preserve the same core StudyPilot behavior while re-expressing it through separated responsibilities, such as:
 
 * data models or data structures
 * input shaping or form-style validation
@@ -64,9 +66,15 @@ The architecture preview should express the same project idea with separated res
 * application/controller flow
 * persistence or service utilities
 
+This version is not intended to be a feature-expanded second app.
+
+It is intended to be a structural teaching version of the same project.
+
 This version should not require Django or another web framework.
 
 Its purpose is to help students recognize application structure before encountering a full framework.
+
+A short explanation artifact may accompany this version so the structural distinctions are easy to inspect.
 
 ### 3. Django Preview
 
