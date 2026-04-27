@@ -28,5 +28,6 @@ d:/@Coding_Projects/Python/StudyPilot/.venv/Scripts/python.exe full/02_architect
 * `ARCHITECTURE_OVERVIEW.md` - short explanation of where each responsibility lives
 * `WEEK6_INSTRUCTOR_COMPARISON.md` - short teaching note comparing this version to the console version
 * `DJANGO_RECOGNITION_MAP.md` - simple recognition bridge from this structure to later Django ideas
+* `../03_django_preview/WEEK6_AND_BEYOND_COMPARISON.md` - short side-by-side comparison of the console, architecture-preview, and Django versions
 
 The app saves its data to `studypilot_data.json` in this same folder.

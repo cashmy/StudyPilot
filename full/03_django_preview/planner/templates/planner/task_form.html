@@ -1,0 +1,16 @@
+{% extends 'planner/base.html' %} {% block title %}{{ page_title }} | StudyPilot
+Django Preview{% endblock %} {% block content %}
+<section class="form-panel">
+  <p class="eyebrow">Task Input</p>
+  <h2>{{ page_title }}</h2>
+  <form method="post" class="stacked-form">
+    {% csrf_token %} {{ form.as_p }}
+    <div class="form-actions">
+      <button class="button" type="submit">Save Task</button>
+      <a class="button button-secondary" href="{% url 'planner:task_list' %}"
+        >Cancel</a
+      >
+    </div>
+  </form>
+</section>
+{% endblock %}

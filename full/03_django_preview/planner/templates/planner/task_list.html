@@ -1,0 +1,70 @@
+{% extends 'planner/base.html' %} {% block title %}Tasks | StudyPilot Django
+Preview{% endblock %} {% block content %}
+<section class="section-header">
+  <div>
+    <p class="eyebrow">Study Tasks</p>
+    <h2>Task List</h2>
+  </div>
+  <a class="button" href="{% url 'planner:add_task' %}">Add Task</a>
+</section>
+
+<section class="content-card">
+  {% if tasks %}
+  <div class="table-wrapper">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Course</th>
+          <th>Priority</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+        <tr>
+          <td>
+            <strong>{{ task.task_name }}</strong><br />
+            <span class="muted-text">{{ task.topic }}</span>
+          </td>
+          <td>{{ task.course_name }}</td>
+          <td>{{ task.get_priority_display }}</td>
+          <td>{{ task.due_date|default:'No due date' }}</td>
+          <td>
+            {% if task.completed %}
+            <span class="status-pill status-complete">Completed</span>
+            {% elif task.is_overdue %}
+            <span class="status-pill status-overdue">Overdue</span>
+            {% elif task.is_due_soon %}
+            <span class="status-pill status-due-soon">Due Soon</span>
+            {% else %}
+            <span class="status-pill status-open">Open</span>
+            {% endif %}
+          </td>
+          <td>
+            {% if not task.completed %}
+            <form
+              method="post"
+              action="{% url 'planner:complete_task' task.id %}"
+            >
+              {% csrf_token %}
+              <button class="button button-small" type="submit">
+                Mark Complete
+              </button>
+            </form>
+            {% else %}
+            <span class="muted-text">Done {{ task.completed_date }}</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p>No study tasks yet. Add one to get started.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'planner/base.html' %} {% block title %}Dashboard | StudyPilot Django
+Preview{% endblock %} {% block content %}
+<section class="hero-panel">
+  <div>
+    <p class="eyebrow">Recognition-Oriented Demo</p>
+    <h2>Study planning in a small Django app</h2>
+    <p>
+      This preview keeps StudyPilot focused on tasks, sessions, due dates, and
+      simple progress summaries.
+    </p>
+  </div>
+  <div class="hero-actions">
+    <a class="button" href="{% url 'planner:add_task' %}">Add Study Task</a>
+    <a class="button button-secondary" href="{% url 'planner:add_session' %}"
+      >Log Study Session</a
+    >
+  </div>
+</section>
+
+<section class="card-grid">
+  <article class="summary-card">
+    <h3>Open Tasks</h3>
+    <p class="summary-number">{{ open_task_count }}</p>
+    <p>{{ task_count }} total task{{ task_count|pluralize }}</p>
+  </article>
+  <article class="summary-card">
+    <h3>Recent Study Time</h3>
+    <p class="summary-number">{{ recent_minutes }}</p>
+    <p>minutes in the last 7 days</p>
+  </article>
+  <article class="summary-card">
+    <h3>All-Time Minutes</h3>
+    <p class="summary-number">{{ all_time_minutes }}</p>
+    <p>logged across all sessions</p>
+  </article>
+  <article class="summary-card">
+    <h3>Estimated Remaining</h3>
+    <p class="summary-number">{{ estimated_remaining_minutes }}</p>
+    <p>minutes across open tasks</p>
+  </article>
+</section>
+
+<section class="two-column-layout">
+  <article class="content-card">
+    <h3>Due Soon</h3>
+    {% if due_soon_tasks %}
+    <ul class="item-list">
+      {% for task in due_soon_tasks %}
+      <li>
+        <strong>{{ task.task_name }}</strong>
+        <span>{{ task.course_name }} | due {{ task.due_date }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No tasks are due within the next 2 days.</p>
+    {% endif %}
+  </article>
+
+  <article class="content-card">
+    <h3>Overdue</h3>
+    {% if overdue_tasks %}
+    <ul class="item-list">
+      {% for task in overdue_tasks %}
+      <li>
+        <strong>{{ task.task_name }}</strong>
+        <span>{{ task.course_name }} | due {{ task.due_date }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No overdue tasks right now.</p>
+    {% endif %}
+  </article>
+</section>
+
+<section class="content-card">
+  <h3>Recent Study Sessions</h3>
+  {% if recent_sessions %}
+  <ul class="item-list">
+    {% for session in recent_sessions %}
+    <li>
+      <strong>{{ session.course_name }} | {{ session.topic }}</strong>
+      <span
+        >{{ session.minutes_studied }} min on {{ session.session_date }}</span
+      >
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No sessions logged in the last 7 days.</p>
+  {% endif %}
+</section>
+{% endblock %}
