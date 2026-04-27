@@ -16,10 +16,11 @@ Its purpose is to help instructors and students recognize how this architecture-
   In Django, database-backed models would replace most of this JSON file handling.
 
 * `views.py` is not a Django view in the strict framework sense.
-  It is closer to presentation output and helps students notice that display concerns can be separated from logic.
+  In this version, it is closer to presentation and output formatting.
+  It helps students notice that display concerns can be separated from logic before they later encounter Django views and templates.
 
-* `main.py` is the clearest preview of request-flow or controller-style coordination.
-  In Django, URL routing, view functions, and forms would take over much of this flow work.
+* `main.py` is the clearest preview of application-flow coordination.
+  In Django, URL routing, forms, and view functions would take over much of this interaction flow.
 
 ## Later Django Recognition Examples
 
