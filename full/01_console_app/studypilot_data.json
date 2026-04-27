@@ -1,0 +1,18 @@
+{
+  "next_task_id": 2,
+  "next_session_id": 1,
+  "tasks": [
+    {
+      "id": 1,
+      "course_name": "Python",
+      "topic": "Project Creation for Demo",
+      "task_name": "StudyPlanner",
+      "priority": "high",
+      "due_date": "2026-04-27",
+      "estimated_minutes": 120,
+      "completed": false,
+      "completed_date": ""
+    }
+  ],
+  "sessions": []
+}
