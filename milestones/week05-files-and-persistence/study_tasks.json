@@ -1,0 +1,23 @@
+[
+  {
+    "course_name": "Python Programming",
+    "task_name": "Finish JSON practice",
+    "priority": "high",
+    "completed": false,
+    "estimated_minutes": 40
+  },
+  {
+    "course_name": "History 101",
+    "task_name": "Read chapter summary",
+    "priority": "medium",
+    "completed": true,
+    "estimated_minutes": 30
+  },
+  {
+    "course_name": "Biology",
+    "task_name": "Review cell vocabulary",
+    "priority": "low",
+    "completed": true,
+    "estimated_minutes": 55
+  }
+]
